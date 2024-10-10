@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0e0e0e; /* Ajusta al color de fondo deseado */
+    color: white;
+}
+
+h2 {
+    font-size: 50px; /* Tamaño más grande */
+    color: white ; 
+    font-family: 'Medula One', cursive;
+    font-weight: 400;
+    line-height: 120.96px;
+    white-space: nowrap;
+    margin: 0; /* SIN MARGENES */
+    padding: 0; /* SIN RELLENO */
+}
+
+h3 {
+    font-size: 50px; /* Tamaño más grande */
+    color: yellow ; 
+    font-family: 'Medula One', cursive;
+    font-weight: 400;
+    line-height: 0px;
+    margin: 0; /* SIN MARGENES */
+    padding: 0; /* SIN RELLENO */
+    margin-top: -40px;
+}
+h3 img {
+    vertical-align: middle;
+  }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: black;
+}
+
+.hero {
+    text-align: justify;
+    margin-top: 370px;
+    margin: 0 0 0 20px; /* Centra el hero horizontalmente */
+    padding: 35px; /* Agrega un relleno para separar el texto del borde */
+}
+
+
+button {
+    background-color: white; /* Cambia al color deseado */
+    color: black;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    width: 230px;
+    height: 45px;
+    border-radius: 12px;
+    margin-top: 45px;
+}
+
+button:hover {
+    background-color: #45a049; /* Cambia al color deseado */
+}
+
+.image-container {
+  position: absolute;
+  top: 120px; /* Ajusta la posición superior a 0 */
+  height: 500px; /* Establece la altura en 100% de la viewport */
+  right: -15px; /* Ajusta la posición derecha a 0 */
+  transform: scale(0.7);
+}
+
+.text-container {
+    position:relative;
+    left: 200px;
+    margin: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Borde casi invisible */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); /* Agrega una sombra para dar profundidad */
+    background-color: transparent; /* Fondo transparente para que parezca invisible */
+    height: 380px;
+    border-radius: 44px;
+    max-width: 550px; /* Establece un ancho máximo para el hero */
+    padding: 30px;
+}
+
+p {
+    font-family: 'Kokoro', sans-serif; /* Asegúrate de que esta fuente esté disponible o cargada */
+    margin: 0; /* Eliminar márgenes para evitar separación */
+    padding: 0; /* Eliminar relleno si es necesario */
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.project-logo {
+    margin-left: 100px;
+    margin-top: -15px;
+}
+
+.nav-item {
+    margin-right: 100px; /* Espacio entre los elementos de navegación */
+    padding: 100px 40px;
+}
