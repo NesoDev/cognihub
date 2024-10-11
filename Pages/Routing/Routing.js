@@ -1,6 +1,6 @@
 const routes = {
     '/': { html: '/Pages/Landing/landing.html', css: '/Pages/Landing/Landing.css', js: '/Pages/Landing/Landing.js' },
-    '/guide': { html: '/Pages/Guide/guide.html', css: '/Pages/Guide/Guide.css', js: '/Pages/Guide/Guide.js' }, // Add more routes
+    '/guide': { html: '/Pages/Guide/guide.html', css: '/Pages/Guide/guide.css', js: '/Pages/Guide/guide.js' }, // Add more routes
 };
 
 function loadCSS(cssFile) {
@@ -18,12 +18,12 @@ function loadJS(jsFile) {
 }
 
 function removePreviousJS() {
-    const previousScripts = document.querySelectorAll('script[src');
+    const previousScripts = document.querySelectorAll('script[src]');
     previousScripts.forEach(script => script.remove());
 }
 
 function removePreviousCSS() {
-    const previousCSS = document.querySelectorAll('link[rel="stylesheet"');
+    const previousCSS = document.querySelectorAll('link[rel="stylesheet"]');
     previousCSS.forEach(link => link.remove());
 }
 
@@ -31,18 +31,21 @@ function navigateTo(route) {
     const appDiv = document.getElementById('app')
     fetch(routes[route].html).then(response => response.text()).then(html => {
         appDiv.innerHTML = html;
-    }).catch(err => console.error('Error loading page: ', err));
+        removePreviousCSS();
+        loadCSS(routes[route].css);
     
-    removePreviousCSS();
-    loadCSS(routes[route].css);
-
-    removePreviousJS();
-    loadJS(routes[route].js);
+        removePreviousJS();
+        loadJS(routes[route].js);
+    }).catch(err => console.error('Error loading page: ', err));
 }
 
-window.addEventListener('popstate', () => {
-    navigateTo(window.location.pathname);
-})
+document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('popstate', () => {
+        navigateTo(window.location.pathname);
+        
+    })
 
-navigateTo('/');
+    navigateTo('/');
+});
 
+window.navigateTo = navigateTo;
