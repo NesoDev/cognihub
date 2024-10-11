@@ -1,3 +1,4 @@
+
 document.getElementById('startButton').addEventListener('click', function() {
     const popupWindow = window.open('', '', 'width=350,height=130,left=0,top=0,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
     fetch('Pages/Controller/controller.html')
@@ -6,3 +7,8 @@ document.getElementById('startButton').addEventListener('click', function() {
         popupWindow.document.write(html);
     }).catch(err => console.error('Error loading page: ', err));
 }); 
+
+
+document.getElementById('quickGuideButton').addEventListener('click', function() {
+    navigateTo('/guide');
+});
