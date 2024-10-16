@@ -1,6 +1,6 @@
 const routes = {
-    '/': { html: '/Pages/Landing/landing.html', css: '/Pages/Landing/Landing.css', js: '/Pages/Landing/Landing.js' },
-    '/guide': { html: '/Pages/Guide/guide.html', css: '/Pages/Guide/guide.css', js: '/Pages/Guide/guide.js' }, // Add more routes
+    '/': { html: '/Pages/Landing/landing.html', css: '/Pages/Landing/Landing.css', js: ['/Pages/Landing/Landing.js', 'Assets/audiorecorder.js'] },
+    '/guide': { html: '/Pages/Guide/guide.html', css: '/Pages/Guide/guide.css', js: '/Pages/Guide/guide.js' },
 };
 
 function loadCSS(cssFile) {
@@ -10,11 +10,21 @@ function loadCSS(cssFile) {
     document.head.appendChild(link);
 }
 
-function loadJS(jsFile) {
-    const script = document.createElement('script');
-    script.src = jsFile;
-    script.defer = true;
-    document.body.appendChild(script);
+function loadJS(jsFiles) {
+    // Modificado para admitir múltiples archivos JS
+    if (Array.isArray(jsFiles)) {
+        jsFiles.forEach(jsFile => {
+            const script = document.createElement('script');
+            script.src = jsFile;
+            script.defer = true;
+            document.body.appendChild(script);
+        });
+    } else {
+        const script = document.createElement('script');
+        script.src = jsFiles;
+        script.defer = true;
+        document.body.appendChild(script);
+    }
 }
 
 function removePreviousJS() {
