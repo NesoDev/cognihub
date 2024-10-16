@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
+function initializeAudioRecorder() {
     let mediaRecorder;
     let audioChunks = [];
 
@@ -13,15 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             mediaRecorder.onstop = () => {
                 const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-                // Aquí puedes enviar el audio al servidor o procesarlo
-                sendAudio(audioBlob);
+                sendAudio(audioBlob);  // Aquí puedes enviar el audio al servidor o procesarlo
             };
+
             mediaRecorder.onpause = () => {
-            console.log('Grabación pausada (evento onpause detectado)');
+                console.log('Grabación pausada (evento onpause detectado)');
             };
 
             mediaRecorder.onresume = () => {
-            console.log('Grabación reanudada (evento onresume detectado)');
+                console.log('Grabación reanudada (evento onresume detectado)');
             };
         })
         .catch(error => console.error('Error accessing microphone:', error));
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Grabación iniciada');
     }
 
-    // Función para pausar la grabación
     function pauseRecording() {
         if (mediaRecorder && mediaRecorder.state === 'recording') {
             mediaRecorder.pause();
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Función para reanudar la grabación
     function resumeRecording() {
         if (mediaRecorder && mediaRecorder.state === 'paused') {
             mediaRecorder.resume();
@@ -59,41 +56,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /*function sendAudio(audioBlob) {
-        const formData = new FormData();
-        formData.append('audio', audioBlob, 'audio.wav');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopBtn');
+    const pauseButton = document.getElementById('pauseBtn');
+    const resumeButton = document.getElementById('resumeBtn');
 
-        fetch('/upload', { 
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => console.log('Audio enviado exitosamente:', data))
-        .catch(error => console.error('Error al enviar audio:', error));
-    } */
+    if (startButton) {
+        startButton.addEventListener('click', () => {
+            startRecording();
+            startButton.disabled = true;
+            if (stopButton) stopButton.disabled = false;
+        });
+    }
 
-    document.getElementById('startButton').addEventListener('click', () => {
-        startRecording();
-        document.getElementById('startButton').disabled = true;
-        document.getElementById('stopBtn').disabled = false;
-    });
+    if (stopButton) {
+        stopButton.addEventListener('click', () => {
+            stopRecording();
+            if (startButton) startButton.disabled = false;
+            stopButton.disabled = true;
+        });
+    }
 
+    if (pauseButton) {
+        pauseButton.addEventListener('click', () => {
+            pauseRecording();
+            pauseButton.disabled = true;
+            if (resumeButton) resumeButton.disabled = false;
+        });
+    }
 
-    document.getElementById('stopBtn').addEventListener('click', () => {
-        stopRecording();
-        document.getElementById('startButton').disabled = false;
-        document.getElementById('stopBtn').disabled = true;
-    });
+    if (resumeButton) {
+        resumeButton.addEventListener('click', () => {
+            resumeRecording();
+            resumeButton.disabled = true;
+            if (pauseButton) pauseButton.disabled = false;
+        });
+    }
+}
 
-    document.getElementById('pauseBtn').addEventListener('click', () => {
-        pauseRecording();
-        document.getElementById('pauseBtn').disabled = true;
-        document.getElementById('resumeBtn').disabled = false;
-    });
-
-    document.getElementById('resumeBtn').addEventListener('click', () => {
-        resumeRecording();
-        document.getElementById('resumeBtn').disabled = true;
-        document.getElementById('pauseBtn').disabled = false;
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    initializeAudioRecorder();  // Inicializa el grabador de audio
 });
