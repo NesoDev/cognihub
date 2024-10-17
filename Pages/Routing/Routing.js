@@ -12,22 +12,24 @@ function loadCSS(cssFile) {
 }
 
 function loadJS(jsFiles) {
-    return Promise.all(jsFiles.map(jsFile => {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = jsFile;
-            script.defer = true;
-            script.onload = () => {
-                console.log(`Script ${jsFile} cargado correctamente.`);
-                resolve();
-            };
-            script.onerror = () => {
-                reject(`Error al cargar el script ${jsFile}`);
-            };
-            document.body.appendChild(script);
+    return jsFiles.reduce((promise, jsFile) => {
+        return promise.then(() => {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = jsFile;
+                script.onload = () => {
+                    console.log(`Script ${jsFile} cargado correctamente.`);
+                    resolve();
+                };
+                script.onerror = () => {
+                    reject(`Error al cargar el script ${jsFile}`);
+                };
+                document.body.appendChild(script);
+            });
         });
-    }));
+    }, Promise.resolve());
 }
+
 
 function removePreviousJS() {
     const previousScripts = document.querySelectorAll('script[src]');
@@ -49,9 +51,10 @@ function navigateTo(route) {
             loadCSS(routes[route].css);
 
             removePreviousJS();
-            
-            // Cargar scripts y luego ejecutar initializeAudioRecorder
+
+            // Cargar scripts secuencialmente
             loadJS(routes[route].js).then(() => {
+                console.log('Todos los scripts cargados.');
                 const audioRoutes = ['/', '/controller'];
                 if (audioRoutes.includes(route)) {
                     if (typeof initializeAudioRecorder === 'function') {
@@ -64,6 +67,7 @@ function navigateTo(route) {
         })
         .catch(err => console.error('Error loading page: ', err));
 }
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
