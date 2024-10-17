@@ -9,11 +9,9 @@
 <body>
 
     <div class="floating-panel">
-        <button id="pauseBtn" onclick="togglePause()">Pausar</button>
-        <button id="resumeBtn" style="display: none;" onclick="toggleResume()">Reanudar</button>
-        <button id="stopBtn" onclick="toggleStop()">Detener</button>
+        <button id="pauseBtn" onclick="AudioController.togglePause()">Pausar</button>
+        <button id="resumeBtn" style="display: none;" onclick="AudioController.toggleResume()">Reanudar</button>
+        <button id="stopBtn" onclick="AudioController.toggleStop()">Detener</button>
     </div>
-
-    <script src="Pages/Controller/controller.js"></script>
 </body>
 </html>

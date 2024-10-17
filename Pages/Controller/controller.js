@@ -1,19 +1,18 @@
-let isPaused = false;
-
-window.togglePause = function() {
-    document.getElementById('pauseBtn').style.display = 'none'; // Oculta el botón "Pausar"
-    document.getElementById('resumeBtn').style.display = 'block'; // Muestra el botón "Reanudar"
-    document.getElementById('stopBtn').disabled = false;
-    isPaused = true;
-}
-
-window.toggleResume = function () {
-    document.getElementById('pauseBtn').style.display = 'block'; // Muestra el botón "Pausar"
-    document.getElementById('resumeBtn').style.display = 'none'; // Oculta el botón "Reanudar"
-    isPaused = false;
-}
-
-window.toggleStop = function() {
-    window.close();
-    // avisar a la página principal que le proceso terminó
-}
+const AudioController = {
+    isPaused: false,
+    togglePause: function() {
+        document.getElementById('pauseBtn').style.display = 'none';
+        document.getElementById('resumeBtn').style.display = 'block';
+        document.getElementById('stopBtn').disabled = false;
+        this.isPaused = true;
+    },
+    toggleResume: function() {
+        document.getElementById('pauseBtn').style.display = 'block';
+        document.getElementById('resumeBtn').style.display = 'none';
+        this.isPaused = false;
+    },
+    toggleStop: function() {
+        window.close();
+    }
+};
+window.AudioController = AudioController;
