@@ -6,18 +6,18 @@ body {
 }
 
 h2 {
-    font-size: 50px; /* Tamaño más grande */
+    font-size: 70px; /* Tamaño más grande */
     color: white ; 
     font-family: 'Medula One', cursive;
     font-weight: 400;
     line-height: 120.96px;
     white-space: nowrap;
-    margin: 0; /* SIN MARGENES */
+    margin: 10px; /* SIN MARGENES */
     padding: 0; /* SIN RELLENO */
 }
 
 h3 {
-    font-size: 50px; /* Tamaño más grande */
+    font-size: 70px; /* Tamaño más grande */
     color: yellow ; 
     font-family: 'Medula One', cursive;
     font-weight: 400;
@@ -33,7 +33,7 @@ h3 img {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 50px;
     background-color: black;
 }
 
@@ -46,6 +46,7 @@ header {
 
 
 button {
+    font-size: 20px;
     background-color: white; /* Cambia al color deseado */
     color: black;
     padding: 5px 5px;
@@ -62,40 +63,58 @@ button:hover {
 }
 
 .image-container {
-  position: absolute;
-  top: 120px; /* Ajusta la posición superior a 0 */
-  height: 500px; /* Establece la altura en 100% de la viewport */
-  right: -15px; /* Ajusta la posición derecha a 0 */
-  transform: scale(0.7);
-}
+    position: absolute;
+    top: 220px;
+    bottom: 0;
+    height: auto;
+    background-size: cover;
+    right: 300px;
+    transform: scale(0.9);
+    max-width: 800px;
+    background: radial-gradient(circle at top left, rgba(128, 0, 128, 0.05) 50%, transparent 50%),
+                radial-gradient(circle at bottom right, rgba(0, 128, 0, 0.05) 50%, transparent 50%);
+                background-position: bottom 20% right 0, bottom right;
+  }
 
 .text-container {
     position:relative;
-    left: 200px;
+    left: 60px;
     margin: 50px;
     border: 2px solid rgba(255, 255, 255, 0.1); /* Borde casi invisible */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); /* Agrega una sombra para dar profundidad */
     background-color: transparent; /* Fondo transparente para que parezca invisible */
-    height: 380px;
+    height: 450px;
     border-radius: 44px;
-    max-width: 550px; /* Establece un ancho máximo para el hero */
+    max-width: 750px; /* Establece un ancho máximo para el hero */
     padding: 30px;
+    top: 10px;
 }
 
 p {
     font-family: 'Kokoro', sans-serif; /* Asegúrate de que esta fuente esté disponible o cargada */
     margin: 0; /* Eliminar márgenes para evitar separación */
     padding: 0; /* Eliminar relleno si es necesario */
-    font-size: 20px;
+    font-size: 25px;
     margin-top: 20px;
 }
 
 .project-logo {
-    margin-left: 100px;
+    margin-left: 160px;
     margin-top: -15px;
 }
 
 .nav-item {
+    position: relative;
+    top: -20px; /* Ajusta el valor según tus necesidades */
     margin-right: 100px; /* Espacio entre los elementos de navegación */
-    padding: 100px 40px;
+    color: #ffffff;
+    font-family: 'Kokoro', sans-serif;
+    font-weight: bold;
+  }
+
+.github-logo {
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 0px;
 }
+
