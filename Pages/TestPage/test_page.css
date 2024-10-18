@@ -9,26 +9,86 @@ body {
     height: 100vh;
 }
 
-.content {
+.container {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question-counter {
     text-align: center;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
+}
+
+#remainingQuestionsBtn {
     background-color: #2a2a3d;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.chat-box {
+    flex: 1;
+    background-color: #2a2a3d;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #3a3a4d;
+    color: #ffffff;
+}
+
+.user-message {
+    text-align: right;
+    background-color: #4b4b63;
+}
+
+.bot-message {
+    text-align: left;
+    background-color: #3a3a4d;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    resize: none;
+    height: 50px;
+    border: none;
+    background-color: #2a2a3d;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #5a4bb7;
-    color: #ffffff;
+    background-color: #4a3b97;
+    color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #4a3b97;
+    background-color: #3b2b87;
 }
