@@ -18,6 +18,7 @@ const AudioController = {
         document.getElementById('testBtn').style.display = 'block';
     },
     toggleTest: function() {
+        window.opener.dispatchEvent(new CustomEvent('startTest'));
         window.close();
     }
 };

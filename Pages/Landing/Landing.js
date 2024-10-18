@@ -31,3 +31,7 @@ document.getElementById('startButton').addEventListener('click', function() {
             };
         }).catch(err => console.error('Error loading page: ', err));
 });
+
+window.addEventListener('startTest', () => {
+    navigateTo('/test-page');
+});
