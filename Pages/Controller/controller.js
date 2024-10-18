@@ -12,6 +12,12 @@ const AudioController = {
         this.isPaused = false;
     },
     toggleStop: function() {
+        document.getElementById('resumeBtn').style.display = 'none';
+        document.getElementById('pauseBtn').style.display = 'none';
+        document.getElementById('stopBtn').style.display = 'none';
+        document.getElementById('testBtn').style.display = 'block';
+    },
+    toggleTest: function() {
         window.close();
     }
 };

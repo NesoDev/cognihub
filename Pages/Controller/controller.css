@@ -1,21 +1,18 @@
+body {
+    background-color: #333;
+}
 
 .floating-panel {
     position: fixed;
-    top: 10px;
-    left: 10px;
     width: 80vw;
-    max-width: 300px;
-    background-color: #333;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     color: white;
     text-align: center;
 }
 
 .floating-panel button {
     display: block;
-    margin: 10px auto;
+    margin: 14px 40px;
     padding: 10px;
     width: 90%;
     border: none;
@@ -34,28 +31,6 @@
     cursor: not-allowed;
 }
 
-@media (max-width: 600px) {
-    .floating-panel {
-        width: 90vw;
-        padding: 15px;
-    }
-
-    .floating-panel button {
-        width: 95%;
-        padding: 8px;
-    }
-}
-
-@media (max-width: 400px) {
-    .floating-panel {
-        width: 100vw;
-        top: 5px;
-        left: 0;
-        padding: 10px;
-        border-radius: 0;
-    }
-
-    .floating-panel button {
-        padding: 6px;
-    }
+#testBtn {
+    background-color: #5A4BB7;
 }
