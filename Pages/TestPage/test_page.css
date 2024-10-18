@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question-counter {
+    text-align: center;
+}
+
+#remainingQuestionsBtn {
+    background-color: #2a2a3d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.chat-box {
+    flex: 1;
+    background-color: #2a2a3d;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #3a3a4d;
+    color: #ffffff;
+}
+
+.user-message {
+    text-align: right;
+    background-color: #4b4b63;
+}
+
+.bot-message {
+    text-align: left;
+    background-color: #3a3a4d;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    resize: none;
+    height: 50px;
+    border: none;
+    background-color: #2a2a3d;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a3b97;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3b2b87;
+}
