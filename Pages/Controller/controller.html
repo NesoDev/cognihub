@@ -10,9 +10,9 @@
 <body>
 
     <div class="floating-panel">
-        <button id="pauseBtn" >Pausar</button>
-        <button id="resumeBtn" style="display: none;" >Reanudar</button>
-        <button id="stopBtn" >Detener</button>
+        <button id="pauseBtn" onclick="pauseRecording();" disabled>Pausar</button>
+        <button id="resumeBtn" onclick="resumeRecording();" disabled style="display: none;" >Reanudar</button>
+        <button id="stopBtn" onclick="stopRecording();" disabled >Detener</button>
         <button id="testBtn" style="display: none;" >🚩 Empezar test</button>
     </div>
 </body>

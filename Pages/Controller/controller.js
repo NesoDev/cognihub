@@ -35,7 +35,7 @@ window.initializeAudioRecorder= function() {
 }
 
 // Función para iniciar la grabación
-function startRecording() {
+window.startRecording = function () {
     if (mediaRecorder) {
         mediaRecorder.start();
         console.log('Grabación iniciada');
@@ -43,7 +43,7 @@ function startRecording() {
 }
 
 // Función para detener la grabación
-function stopRecording() {
+window.stopRecording= function () {
     if (mediaRecorder) {
         mediaRecorder.stop();
         console.log('Grabación detenida');
@@ -51,7 +51,7 @@ function stopRecording() {
 }
 
 // Función para pausar la grabación
-function pauseRecording() {
+window.pauseRecording = function() {
     if (mediaRecorder) {
         mediaRecorder.pause();
         console.log('Grabación pausada');
@@ -59,7 +59,7 @@ function pauseRecording() {
 }
 
 // Función para reanudar la grabación
-function resumeRecording() {
+window.resumeRecording= function () {
     if (mediaRecorder) {
         mediaRecorder.resume();
         console.log('Grabación reanudada');
@@ -67,7 +67,7 @@ function resumeRecording() {
 }
 
 // Configurar event listeners para los botones
-function setupEventListeners() {
+window.setupEventListeners= function () {
     const startButton = document.getElementById('startButton');
     const stopButton = document.getElementById('stopBtn');
     const pauseButton = document.getElementById('pauseBtn');
