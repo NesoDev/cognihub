@@ -29,12 +29,14 @@ function loadJS(jsFiles) {
             });
         });
     }, Promise.resolve());
+    console.log('Cargando scripts:', jsFiles);
 }
 
 
 function removePreviousJS() {
     const previousScripts = document.querySelectorAll('script[src]');
     previousScripts.forEach(script => script.remove());
+    console.log('Eliminando scripts anteriores');
 }
 
 function removePreviousCSS() {

@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controller</title>
-    <link rel="stylesheet" href="Pages/Controller/controller.css">
+    <link rel="stylesheet" href="/Pages/Controller/controller.css">
+    <script src="/Pages/Controller/controller.js" defer></script>
 </head>
 <body>
 
     <div class="floating-panel">
-        <button id="pauseBtn" onclick="AudioController.togglePause()">Pausar</button>
-        <button id="resumeBtn" style="display: none;" onclick="AudioController.toggleResume()">Reanudar</button>
-        <button id="stopBtn" onclick="AudioController.toggleStop()">Detener</button>
-        <button id="testBtn" style="display: none;" onclick="AudioController.toggleTest()">🚩 Empezar test</button>
+        <button id="pauseBtn" >Pausar</button>
+        <button id="resumeBtn" style="display: none;" >Reanudar</button>
+        <button id="stopBtn" >Detener</button>
+        <button id="testBtn" style="display: none;" >🚩 Empezar test</button>
     </div>
 </body>
 </html>
