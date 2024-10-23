@@ -9,11 +9,13 @@
 </head>
 <body>
 
-    <div class="floating-panel">
-        <button id="pauseBtn" >Pausar</button>
-        <button id="resumeBtn" " disabled style="display: none;" >Reanudar</button>
-        <button id="stopBtn" disabled >Detener</button>
-        <button id="testBtn" style="display: none;" >🚩 Empezar test</button>
+    <div class="floating-panel">  
+        <button id="pauseBtn" onclick="AudioController.togglePause()">Pausar</button>
+        <button id="resumeBtn" style="display: none;" onclick="AudioController.toggleResume()">Reanudar</button>
+        <button id="stopBtn" onclick="AudioController.toggleStop()" disabled>Detener</button>
+        <button id="testBtn" style="display: none;" onclick="AudioController.toggleTest()">🚩 Empezar test</button>
     </div>
 </body>
 </html>
+
+

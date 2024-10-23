@@ -43,3 +43,7 @@ document.getElementById('startButton').addEventListener('click', function() {
     // Abrir la ventana emergente con la página de controlador
     const popupWindow = window.open('Pages/Controller/controller.html', '', 'width=350,height=130,left=0,top=0,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
 });
+
+window.addEventListener('startTest', () => {
+    navigateTo('/test-page');
+});
