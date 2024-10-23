@@ -5,13 +5,13 @@ document.getElementById('startButton').addEventListener('click', function() {
     // Esperar a que la ventana emergente cargue completamente
     popupWindow.onload = () => {
         console.log('Ventana emergente cargada completamente');
-        
-        // Aquí llamamos a la función para iniciar la grabación después de que todo haya cargado
+
+        // Aquí llamamos a la función para inicializar la grabación después de que todo haya cargado
         if (popupWindow.initializeAudioRecorder) {
             popupWindow.initializeAudioRecorder();
-            popupWindow.startRecording();
+            popupWindow.startRecording(); // Aquí comienza la grabación
         } else {
-            console.error('initializeAudioRecorder no está definida.');
+            console.error('initializeAudioRecorder no está definida en la ventana emergente.');
         }
     };
 });

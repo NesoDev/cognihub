@@ -2,7 +2,7 @@ let mediaRecorder;
 let audioChunks = [];
 
 // Función para inicializar el grabador de audio
-function initializeAudioRecorder() {
+window.initializeAudioRecorder= function() {
     navigator.mediaDevices.getUserMedia({ audio: true })
         .then(stream => {
             mediaRecorder = new MediaRecorder(stream);
