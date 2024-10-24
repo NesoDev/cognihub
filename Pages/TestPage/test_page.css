@@ -45,9 +45,34 @@ body {
     background-color: #2a2a3d;
     border-radius: 10px;
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: auto; /* Permitir el scroll vertical */
     max-height: 60vh;
     min-height: 300px;
+}
+
+/* Personalizar el scrollbar para Webkit (Chrome, Safari) */
+.chat-box::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: #2a2a3d; /* Color del track (fondo) igual al fondo del contenedor */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #1e1e2f; /* Color del thumb (la parte que se mueve) */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Cambiar el color al hacer hover sobre el scrollbar */
+.chat-box::-webkit-scrollbar-thumb:hover {
+    background: #3b3b4d; /* Un color más claro al pasar el mouse */
+}
+
+/* Para Firefox */
+.chat-box {
+    scrollbar-width: thin; /* Ancho del scrollbar reducido */
+    scrollbar-color: #1e1e2f #2a2a3d; /* Color del thumb y el track en Firefox */
 }
 
 .message {
