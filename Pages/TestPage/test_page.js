@@ -48,9 +48,12 @@ function displayMessage(message, sender) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
 
-    const iconElement = document.createElement('div');
-    iconElement.innerHTML = sender === 'bot' 
-        ? `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    if (sender === 'bot') {
+        const iconContainer = document.createElement('div');
+        iconContainer.classList.add('bot-icon');
+
+        const iconElement = document.createElement('div');
+        iconElement.innerHTML = `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="30" height="30" fill="url(#pattern0_125_912)"/>
             <defs>
             <pattern id="pattern0_125_912" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -58,13 +61,15 @@ function displayMessage(message, sender) {
             </pattern>
             <image id="image0_125_912" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADx0lEQVR4nO2dS2sUQRSFS3fic+VaiY+FP8FH4gtR8C+4F3wsBRETcC8RA5quc3qGyS5uQhLBTXyASx8rTRDExEVU1KBEcSGmpLCFIAnJ6NhVt+p+cDbDzE36nO7qmu6608YoiqIoiqIoitIOvb29a9v6gNIZhoeH1wEYIPmp0nX/mvpbEyT7SbrFAnBVA6gvgLdLBPBOA6gvALeUNAANIA+oR8DfYa09CsCSnALwZTkj65b/XwBMkixIHjGpURTFLpIPQhvN1QdyvyzLnSYFABwgORfaVLavj2VZ7jcJ7PkSzXe/Q7DW7jBSIXk3AhPdvw5HRuoJN7R57FwIh400ACChAAaNNPxUM6EAJo00SM6HNo6d07yRRgSmuU7KSCO0YdQAwptGPQLaNwHACMnuVqu13sta20NyNFSdrIYgABeWqwfgYt11sgoAwMhKNQGM1VUnuwBIdq9UE8DBGuvkFcDAwMCGlWoC2FhXHQ1gCYaGhjbVVSe7AKy1PSvVLMvyUF11sguA5Ogqao7XWCe7AJyfIi5XD8CluutkFwB/mTfmZyl+LPeqhovxUHWyC4CRykgjtGHUAMKbRj0CwhtHHYLSkJFGSrckAXw20kjppjzJ50Ya1UJXl4huGGn4VcYRGOc6If8lzkgEwERo8/jvumekUhTFdpLvIzDRZbk41+OXePsNicBM144AfCC5z6SA34skrZQGMNFsNrtMavhVxn6hq5/WRfY9YR7AM5I3xZ5wFUVRFEVRlFg74pl6B720jnim1EEvuCPeie+gT6Aj3om+SCfpOg9T66BPqSOeEjvoU+qIp8QO+sRuvjtxHfSRXVZ22XXQR2CCC6kYzgELoU1gOP2IIQCxlxqYwoo5AK8yDuBlDAHcyTiA2zGchK+ENoLh1BfLRTiXo6y1e6N4iAKA16HNYP2ajuYBEiQvR2CIq1O+3dXEQqPR2FI9ycJlornBwcHNJiastWciMMbVpNMmNvx4mMN9AQAT0Yz9f9JqtbaSnAltEv+fpv02mpjxN61JzkZgluuwZqO9Ib9UY0a12tilIAAvxJi/eGb0N7/Nxvg0Gt2Mpx1IniL5VeBe/w3AeefcGiOdatnKuCDzx8QNOauB5HEAT0MbzOX1pCzLYyZ1fPNb9YNKCxGY7vXQWnsyieGmHRqNxjY/zgJ4HGCY8bO0PgC7Q/sQBUVR7CF5DsAtAG/+g+G+5jCAs/5vhd7e6Gk2m11lWZ7whgG4Vp3EH1XrkGaqtajfK81Vr01V7/Hv7fef9TWSbDlVFEVRFEVRFMVI5SdnWpx8ChD37gAAAABJRU5ErkJggg=="/>
             </defs>
-            </svg>` // SVG del bot
-        : null; // SVG del usuario
+            </svg>`;
+
+        iconContainer.appendChild(iconElement);
+        messageElement.appendChild(iconContainer);
+    }
 
     const textElement = document.createElement('span');
     textElement.textContent = message;
 
-    messageElement.appendChild(iconElement);
     messageElement.appendChild(textElement);
     chatBox.appendChild(messageElement);
 
