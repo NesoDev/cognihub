@@ -72,8 +72,8 @@ body {
 
 .message {
     display: flex;
-    align-items: center;
-    gap: 10px; /* Añadir espacio entre el icono y el texto */
+    align-items: flex-start; /* Alinea el ícono en la parte superior */
+    gap: 30px;
     margin: 15px 0;
     padding: 15px;
     border-radius: 10px;
@@ -82,15 +82,15 @@ body {
 }
 
 .bot-icon {
-    width: 40px; /* Asegúrate de que el ancho sea igual a la altura */
-    height: 40px; /* Mantener la proporción para una circunferencia */
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #000000;
     border: 1px solid #2D2D2D;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /* Evita que el icono se encoja */
+    flex-shrink: 0;
 }
 
 .bot-message span {
@@ -118,12 +118,14 @@ body {
 .input-area {
     display: flex;
     align-items: center;
+    align-self: flex-start;
     width: 90%;
     border: 1px solid #000000;
     background-color: rgba(13, 14, 26, 0.77);
     border-radius: 28px;
-    padding: 0 20px;
+    padding: 20px;
     height: 110px;
+    gap: 20px;
 }
 
 textarea {
@@ -163,7 +165,6 @@ textarea::placeholder {
 
 .buttons {
     display: flex;
-    align-items: center;
     gap: 10px;
 }
 
