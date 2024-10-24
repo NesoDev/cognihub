@@ -2,7 +2,7 @@ const routes = {
     '/': { html: '/Pages/Landing/landing.html', css: '/Pages/Landing/Landing.css', js: ['/Pages/Controller/controller.js','/Pages/Landing/Landing.js'] },
     '/guide': { html: '/Pages/Guide/guide.html', css: '/Pages/Guide/guide.css', js: '/Pages/Guide/guide.js' },
     '/controller': { html: '/Pages/Controller/controller.html', css: '/Pages/Controller/controller.css', js: '/Pages/Controller/controller.js'},
-    '/test-page': { html: '/Pages/TestPage/test_page.html', css: '/Pages/TestPage/test_page.css', js:'/Pages/TestPage/test_page.js' }
+    '/test-page': { html: '/Pages/TestPage/test_page.html', css: '/Pages/TestPage/test_page.css', js: '/Pages/TestPage/test_page.js' }
 };
 
 function loadCSS(cssFile) {
@@ -13,6 +13,11 @@ function loadCSS(cssFile) {
 }
 
 function loadJS(jsFiles) {
+    // Verificamos si jsFiles es un array, si no lo es, lo convertimos en uno
+    if (!Array.isArray(jsFiles)) {
+        jsFiles = [jsFiles];
+    }
+
     return jsFiles.reduce((promise, jsFile) => {
         return promise.then(() => {
             return new Promise((resolve, reject) => {
@@ -31,6 +36,7 @@ function loadJS(jsFiles) {
     }, Promise.resolve());
     console.log('Cargando scripts:', jsFiles);
 }
+
 
 
 function removePreviousJS() {
