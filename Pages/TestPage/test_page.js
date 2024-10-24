@@ -4,7 +4,6 @@ const sendButton = document.getElementById('sendButton');
 const stopButton = document.getElementById('stopButton');
 const remainingQuestionsBtn = document.getElementById('remainingQuestionsBtn');
 
-// Si no existen estos elementos, significa que no estamos en 'test-page' y salimos
 if (!chatBox || !userInput || !sendButton || !stopButton || !remainingQuestionsBtn) {
     console.log('No se encontraron los elementos necesarios en la test-page.'); 
 } else {
@@ -53,9 +52,30 @@ function sendUserMessage() {
 function displayMessage(message, sender) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
-    messageElement.textContent = message;
     chatBox.appendChild(messageElement);
+
+    if (sender === 'bot') {
+        typeMessage(messageElement, message);
+    } else {
+        messageElement.textContent = message;
+    }
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+}
+
+// Función para mostrar el efecto de escritura
+function typeMessage(element, message) {
+    let index = 0;
+    const typingSpeed = 5; // Velocidad de escritura en milisegundos
+
+    function type() {
+        if (index < message.length) {
+            element.textContent += message.charAt(index);
+            index++;
+            setTimeout(type, typingSpeed);
+        }
+    }
+
+    type();
 }
 
 async function sendMessageToAPI(message) {
