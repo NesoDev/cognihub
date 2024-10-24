@@ -8,14 +8,14 @@ const remainingQuestionsBtn = document.getElementById('remainingQuestionsBtn');
 if (!chatBox || !userInput || !sendButton || !stopButton || !remainingQuestionsBtn) {
     console.log('No se encontraron los elementos necesarios en la test-page.'); 
 } else {
-    console.log('se encontraron los elementos necesarios en la test-page.')
+    console.log('Se encontraron los elementos necesarios en la test-page.');
 }
 
 let remainingQuestions = 9;
 let stopRequest = false;
 
-// Iniciar con la primera pregunta
-askNextQuestion();
+// Iniciar con la primera pregunta enviando un mensaje inicial
+sendInitialMessage();
 
 // Evento para el botón "Enviar"
 sendButton.addEventListener('click', () => {
@@ -35,13 +35,18 @@ stopButton.addEventListener('click', () => {
     stopRequest = true;
 });
 
+function sendInitialMessage() {
+    const initialMessage = "Hola, dame la primera pregunta";
+    sendMessageToAPI(initialMessage);
+}
+
 function sendUserMessage() {
     const userMessage = userInput.value.trim();
     if (userMessage) {
         displayMessage(userMessage, 'user');
+        sendMessageToAPI(userMessage);
         userInput.value = '';
         decrementQuestions();
-        askNextQuestion();
     }
 }
 
@@ -53,7 +58,7 @@ function displayMessage(message, sender) {
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
 }
 
-async function askNextQuestion() {
+async function sendMessageToAPI(message) {
     if (remainingQuestions > 0) {
         try {
             const response = await fetch('https://goldfish-app-kfo84.ondigitalocean.app/chat', {
@@ -61,7 +66,7 @@ async function askNextQuestion() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: 'next_question' })
+                body: JSON.stringify({ message: message })
             });
 
             if (!response.ok) {
@@ -71,7 +76,7 @@ async function askNextQuestion() {
             const data = await response.json();
             displayMessage(data.message, 'bot');
         } catch (error) {
-            displayMessage(`Error al obtener pregunta: ${error.message}`, 'bot');
+            displayMessage(`Error al obtener respuesta: ${error.message}`, 'bot');
         }
     } else {
         displayMessage('No quedan preguntas. Gracias por participar.', 'bot');
