@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e2f;
-    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    background-color: #020007;
+    color: #FFFFFF;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -9,124 +9,147 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
+    overflow-y: hidden; /* Para asegurarse de que se permita el desplazamiento */
 }
 
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1010px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background-color: #2a2a3d;
-    padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    gap: 10px;
+    padding: 40px;
 }
 
 .question-counter {
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #A5A5A5;
 }
 
 #remainingQuestionsBtn {
-    background-color: #3a3a4d;
+    background-color: #122658;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 16px 20px;
+    border-radius: 16px;
     color: white;
     cursor: pointer;
-    width: 100%;
-    max-width: 200px;
+    height: fit-content;
+    width: fit-content;
     margin: 0 auto;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .chat-box {
     flex: 1;
-    background-color: #2a2a3d;
-    border-radius: 10px;
-    padding: 20px;
-    overflow-y: auto; /* Permitir el scroll vertical */
+    background-color: #020007;
+    border-radius: 28px;
+    padding: 40px;
+    overflow-y: auto;
     max-height: 60vh;
     min-height: 300px;
+    overflow-y: scroll; /* Para asegurarse de que se permita el desplazamiento */
+    scrollbar-width: none; /* Firefox */
 }
 
-/* Personalizar el scrollbar para Webkit (Chrome, Safari) */
 .chat-box::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
-}
-
-.chat-box::-webkit-scrollbar-track {
-    background: #2a2a3d; /* Color del track (fondo) igual al fondo del contenedor */
-}
-
-.chat-box::-webkit-scrollbar-thumb {
-    background: #1e1e2f; /* Color del thumb (la parte que se mueve) */
-    border-radius: 4px; /* Bordes redondeados */
-}
-
-/* Cambiar el color al hacer hover sobre el scrollbar */
-.chat-box::-webkit-scrollbar-thumb:hover {
-    background: #3b3b4d; /* Un color más claro al pasar el mouse */
-}
-
-/* Para Firefox */
-.chat-box {
-    scrollbar-width: thin; /* Ancho del scrollbar reducido */
-    scrollbar-color: #1e1e2f #2a2a3d; /* Color del thumb y el track en Firefox */
+    width: none;
 }
 
 .message {
-    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
     padding: 15px;
-    border-radius: 8px;
-    background-color: #3a3a4d;
-    color: #ffffff;
-    word-wrap: break-word;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 24.2px;
+}
+
+.bot-message span {
+    font-weight: 300;
+    color: #D7D7D7;
 }
 
 .user-message {
-    text-align: right;
-    background-color: #4b4b63;
+    background-color: #0E101D;
 }
 
-.bot-message {
-    text-align: left;
-    background-color: #3a3a4d;
+.user-message span {
+    font-weight: 300;
+    color: #FFFFFF;
 }
 
 .input-area {
     display: flex;
-    gap: 10px;
     align-items: center;
     width: 100%;
+    border: 1px solid #000000;
+    background-color: rgba(13, 14, 26, 0.77);
+    border-radius: 28px;
+    padding: 0 20px;
+    height: 110px;
 }
 
 textarea {
     flex: 1;
-    padding: 10px;
+    padding: 0;
     border-radius: 8px;
     resize: none;
-    height: 50px;
+    height: 100%;
     border: none;
-    background-color: #2a2a3d;
-    color: white;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24.2px;
+    box-sizing: border-box;
+    outline: none;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-top: 30px;
+    overflow-y: scroll; /* Para asegurarse de que se permita el desplazamiento */
+    scrollbar-width: none; /* Firefox */
+}
+
+textarea::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+}
+
+textarea::placeholder {
+    color: #414B6E;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24.2px;
+    display: flex;
+    align-items: center;
 }
 
 .buttons {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    gap: 10px;
 }
 
 button {
-    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     border: none;
-    border-radius: 5px;
-    background-color: #4a3b97;
-    color: white;
+    background-color: #414B6E;
+    color: #0A0B14;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
 }
 
 button:hover {
-    background-color: #3b2b87;
+    background-color: #1B1F2F;
 }
