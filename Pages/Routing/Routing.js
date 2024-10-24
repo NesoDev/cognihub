@@ -1,5 +1,5 @@
 const routes = {
-    '/': { html: '/Pages/Landing/landing.html', css: '/Pages/Landing/Landing.css', js: ['/Pages/Controller/controller.js','/Pages/Landing/Landing.js'] },
+    '/': { html: '/Pages/Landing/landing.html', css: '/Pages/Landing/Landing.css', js: ['/Pages/Landing/Landing.js','/Pages/Controller/controller.js'] },
     '/guide': { html: '/Pages/Guide/guide.html', css: '/Pages/Guide/guide.css', js: '/Pages/Guide/guide.js' },
     '/controller': { html: '/Pages/Controller/controller.html', css: '/Pages/Controller/controller.css', js: '/Pages/Controller/controller.js'},
     '/test-page': { html: '/Pages/TestPage/test_page.html', css: '/Pages/TestPage/test_page.css', js:'/Pages/TestPage/test_page.js' }
