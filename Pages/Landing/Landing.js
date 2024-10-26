@@ -1,27 +1,24 @@
 let mediaRecorder;
 let audioChunks = [];
-let isRecording = false;  // Bandera para saber si la grabación está en curso
+let isRecording = false; 
 
-// Función para descargar el audio localmente
+
 function sendAudio(audioBlob) {
-    const formData = new FormData();
-    formData.append('audioFile', audioBlob, 'grabacion.wav');
+    // Crear una URL para el blob de audio
+    const url = URL.createObjectURL(audioBlob);
 
-    // Enviar el archivo de audio a un servidor con una solicitud POST
-    fetch('https://goldfish-app-kfo84.ondigitalocean.app/upload', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Audio enviado correctamente:', data);
-    })
-    .catch(error => {
-        console.error('Error al enviar el audio:', error);
-    });
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'grabacion.wav'; 
+
+    
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);  
+    document.body.removeChild(a);
 }
 
-// Función para inicializar el grabador de audio
 function initializeAudioRecorder() {
     return navigator.mediaDevices.getUserMedia({ audio: true })
         .then(stream => {
