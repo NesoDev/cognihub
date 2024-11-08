@@ -68,14 +68,15 @@ function displayMessage(message, sender) {
     }
 
     const textElement = document.createElement('span');
-    textElement.textContent = message;
+    
+    if (sender === 'bot') {
+        typeMessage(textElement, message);
+    } else {
+        textElement.textContent = message;
+    }
 
     messageElement.appendChild(textElement);
     chatBox.appendChild(messageElement);
-
-    if (sender === 'bot') {
-        typeMessage(textElement, message);
-    }
 
     chatBox.scrollTop = chatBox.scrollHeight;
 }
