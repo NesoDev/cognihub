@@ -1,29 +1,28 @@
 <div class="landing">
     <script src="/Pages/Landing/Landing.js" defer></script>
     <script src="/Pages/Controller/controller.js" defer></script>
+
     <header>
-      <img src="../../Assets/CH.png" alt="Logo proyecto" class="project-logo">
-      <nav class="nav-container">
-        <a href="#" class="nav-item">Nosotros</a>
-      <img src="../../Assets/GH.png" alt="Logo github" class="github-logo">
-      </nav>
+      <a href="../../index.html"><img src="../../Assets/CH.png" alt="Logo proyecto" class="project-logo"></a>
+        <ul class="navbar">
+            <li>
+                Nosotros
+            </li>
+            <li>
+                <a href="https://github.com/nesoDev/cognihub/" class="nav-item nosotros"><img src="../../Assets/GH.png" alt="Logo github" class="github-logo"></a>
+            </li>
+        </ul>      
     </header>
-    
-    <main>
-        <section class="hero">
-            <div class="content-container">
-                <div class="fixed-container">
-                <div class="text-container">
-                    <h2>Sesiones de lectura</h2>
-                    <h3>+ efectivas <img src="../../Assets/brain.png" alt="Logo de cerebro"></h3>
-                    <p>Reciba feedback auditivo en tiempo real para una mejor comprensión de su lectura en voz alta. Al final responda un test escrito para consolidar lo leído.</p>
-                    <button id="startButton">&#9658; <strong>Iniciar</strong></button>
-                    <button id="quickGuideButton">Ver guía rápida</button>
-                </div>
-                <div class="image-container">
-                    <img src="../../Assets/person.png" alt="Imagen de persona en landing page">
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="text-container">
+        <h2 class="hero__title">Sesiones de lectura</h2>
+        <h3 class="hero__motivation-logo">+ efectivas <img src="../../Assets/brain.png" alt="Logo de cerebro"></h3>
+        <p class="callback">Reciba feedback auditivo en tiempo real para una mejor comprensión de su lectura en voz alta. Al final responda un test escrito para consolidar lo leído.</p>
+        <div class="hero__button">
+            <button id="startButton">&#9658; <strong>Iniciar</strong></button>
+            <button id="quickGuideButton">Ver guía rápida</button>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="../../Assets/person.png" alt="Imagen de persona en landing page">
+    </div>
 </div>
