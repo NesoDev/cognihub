@@ -17,6 +17,18 @@ body {
     overflow: hidden;
 }
 
+.back-button-style {
+    fill: white; /* Color de relleno */
+    width: 40px; /* Ancho personalizado */
+    height: 40px; /* Altura personalizada */
+    transition: transform 0.3s, fill 0.3s;
+}
+  
+a:hover .back-button-style {
+    fill: #4761a8; /* Cambia el color al pasar el ratón */
+    transform: scale(1.2); /* Aumenta el tamaño */
+}
+
 .container {
     width: 90%; /* Ajusta el ancho para que no ocupe todo el viewport */
     max-width: 1010px;
