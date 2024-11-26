@@ -1,56 +1,71 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const openerWindow = window.opener; // Acceder a la ventana principal
+function stopRecording() {
+    if (mediaRecorder) {
+        mediaRecorder.stop();
+        console.log('Grabación detenida');
+    }
+}
 
-    if (!openerWindow || !openerWindow.mediaRecorder) {
-        console.error('No se pudo acceder al MediaRecorder de la ventana principal.');
-        return;
+function pauseRecording() {
+    if (mediaRecorder) {
+        mediaRecorder.pause();
+        console.log('Grabación pausada');
+    }
+}
+
+function resumeRecording() {
+    if (mediaRecorder) {
+        mediaRecorder.resume();
+        console.log('Grabación reanudada');
+    }
+}
+
+// Configurar event listeners para los botones de control
+function setupEventListeners() {
+    const stopButton = document.getElementById('stopBtn');
+    const pauseButton = document.getElementById('pauseBtn');
+    const resumeButton = document.getElementById('resumeBtn');
+
+    if (stopButton) {
+        stopButton.addEventListener('click', stopRecording);
     }
 
-    // Sincroniza el estado de los botones al abrir la ventana
-    const mediaRecorder = openerWindow.mediaRecorder;
-
-    if (mediaRecorder.state === 'recording') {
-        document.getElementById('pauseBtn').disabled = false;
-        document.getElementById('resumeBtn').style.display = 'none';
-        document.getElementById('stopBtn').disabled = false;
-    } else if (mediaRecorder.state === 'paused') {
-        document.getElementById('pauseBtn').disabled = true;
-        document.getElementById('resumeBtn').style.display = 'inline-block';
-        document.getElementById('stopBtn').disabled = false;
-    } else if (mediaRecorder.state === 'inactive') {
-        document.getElementById('pauseBtn').disabled = true;
-        document.getElementById('resumeBtn').style.display = 'none';
-        document.getElementById('stopBtn').disabled = true;
+    if (pauseButton) {
+        pauseButton.addEventListener('click', pauseRecording);
     }
 
-    // Pausar la grabación desde la ventana principal
-    document.getElementById('pauseBtn').addEventListener('click', function() {
-        if (openerWindow.mediaRecorder && openerWindow.mediaRecorder.state === 'recording') {
-            openerWindow.mediaRecorder.pause();
-            console.log('Grabación pausada desde ventana emergente');
-            document.getElementById('pauseBtn').disabled = true;
-            document.getElementById('resumeBtn').style.display = 'inline-block';
-        }
-    });
+    if (resumeButton) {
+        resumeButton.addEventListener('click', resumeRecording);
+    }
+}
 
-    // Reanudar la grabación desde la ventana principal
-    document.getElementById('resumeBtn').addEventListener('click', function() {
-        if (openerWindow.mediaRecorder && openerWindow.mediaRecorder.state === 'paused') {
-            openerWindow.mediaRecorder.resume();
-            console.log('Grabación reanudada desde ventana emergente');
-            document.getElementById('pauseBtn').disabled = false;
-            document.getElementById('resumeBtn').style.display = 'none';
-        }
-    });
+// Asegúrate de que esto se ejecute cuando el DOM esté listo
+window.onload = () => {
+    setupEventListeners(); // Asigna los listeners de los botones
+};
 
-    // Detener la grabación desde la ventana principal
-    document.getElementById('stopBtn').addEventListener('click', function() {
-        if (openerWindow.mediaRecorder && openerWindow.mediaRecorder.state !== 'inactive') {
-            openerWindow.mediaRecorder.stop();
-            console.log('Grabación detenida desde ventana emergente');
-            document.getElementById('pauseBtn').disabled = true;
-            document.getElementById('resumeBtn').style.display = 'none';
-            document.getElementById('stopBtn').disabled = true;
-        }
-    });
-});
+
+const AudioController = {
+    isPaused: false,
+    togglePause: function() {
+        document.getElementById('pauseBtn').style.display = 'none';
+        document.getElementById('resumeBtn').style.display = 'block';
+        document.getElementById('stopBtn').disabled = false;
+        this.isPaused = true;
+    },
+    toggleResume: function() {
+        document.getElementById('pauseBtn').style.display = 'block';
+        document.getElementById('resumeBtn').style.display = 'none';
+        this.isPaused = false;
+    },
+    toggleStop: function() {
+        document.getElementById('resumeBtn').style.display = 'none';
+        document.getElementById('pauseBtn').style.display = 'none';
+        document.getElementById('stopBtn').style.display = 'none';
+        document.getElementById('testBtn').style.display = 'block';
+    },
+    toggleTest: function() {
+        window.opener.dispatchEvent(new CustomEvent('startTest'));
+        window.close();
+    }
+};
+window.AudioController = AudioController;
