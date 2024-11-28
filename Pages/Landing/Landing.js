@@ -3,23 +3,35 @@ let audioChunks = [];
 let isRecording = false; 
 
 
-function sendAudio(audioBlob) {
-    const formData = new FormData();
-    formData.append('audio', audioBlob, 'grabacion.wav'); 
+function sendAudioAsBase64(audioBlob) {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        const base64Audio = reader.result.split(',')[1];
 
-    const url = 'https://goldfish-app-kfo84.ondigitalocean.app/upload';  
+        console.log(base64Audio)
 
-    fetch(url, {
-        method: 'POST',
-        body: formData,  
-    })
-    .then(response => response.json())  
-    .then(data => {
-        console.log('Respuesta del backend:', data);
-    })
-    .catch(error => {
-        console.error('Error al enviar el audio:', error);
-    });
+        const url = 'https://goldfish-app-kfo84.ondigitalocean.app/upload';
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                file: base64Audio,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta del backend:', data);
+        })
+        .catch(error => {
+            console.error('Error al enviar el audio en base64:', error);
+        });
+    };
+
+    // Leer el Blob como base64
+    reader.readAsDataURL(audioBlob);
 }
 
 function initializeAudioRecorder() {
@@ -36,8 +48,11 @@ function initializeAudioRecorder() {
             mediaRecorder.onstop = () => {
                 const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
                 console.log('Grabación detenida. Blob de audio:', audioBlob);
-                sendAudio(audioBlob); 
-                audioChunks = []; 
+
+                // Llamar a la nueva función para enviar como base64
+                sendAudioAsBase64(audioBlob);
+
+                audioChunks = [];
             };
 
             mediaRecorder.onerror = (event) => {
