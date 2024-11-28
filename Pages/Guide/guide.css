@@ -1,123 +1,263 @@
-* {
+@font-face {
+	font-family: 'Kay Pho Du';
+	src: url('../../Assets/fonts/Kay_Pho_Du/KayPhoDu-Regular.ttf')format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Kay Pho Du';
+	src: url('../../Assets/fonts/Kay_Pho_Du/KayPhoDu-Medium.ttf')format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Kay Pho Du';
+	src: url('../../Assets/fonts/Kay_Pho_Du/KayPhoDu-SemiBold.ttf')format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Kay Pho Du';
+	src: url('../../Assets/fonts/Kay_Pho_Du/KayPhoDu-Bold.ttf')format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../../Assets/fonts/Inter/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sue Ellen Francisco';
+    src: url('../../Assets/fonts/Sue_Ellen_Francisco/SueEllenFrancisco-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    position: relative;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #e0f7fa, #a7ffeb);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .container {
     display: flex;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 1200px;
+    flex-direction: column;
+    max-width: 1463px;
+    height: 945px;
+    gap: 60px;
+    box-sizing: border-box;
+    margin: auto;
 }
 
-.left-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.container__head {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {
-    width: 150px;
-    margin-bottom: 20px;
+    margin-top: 74px;
+    margin-left: 101px;
+    width: 121px;
+    height: 102px;
+    display: block;
 }
 
-h1 {
-    font-size: 48px;
-    color: #333;
+.container__body {
+    display: flex;
+    flex-direction: row;
+    max-width: 1120px;
+    align-self: center;
+    height: 55  0px;
+}
+
+.container__body__section {
+    display: flex;
+    flex-direction: column;
+    width: 563px;
+    box-sizing: border-box;
+}
+
+#right-section {
+    background-color: white;
+    border-radius: 40px;
+    justify-content: space-between;
+    padding: 60px;
+    gap: 15px;
+    box-shadow: 0px 0px 13px 2px #65A26FB0;
+}
+
+.guide-box__head {
+    display: flex;
+    gap: 5px;
+}
+
+.guide-box__head__title {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 21px;
+    color: #4467E3;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+}
+
+.guide-box__head__rain {
+    width: 32px;
+    height: 33px;
+}
+
+.guide-box__steps {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    align-self: center;
+    gap: 10px;
+}
+
+.guide-box__steps li {
+    font-family: 'Inter';
+    font-weight: 400;
+    color: #7D7E83;
+    flex-wrap: nowrap;
+    font-size: 21px;
+}
+
+#startReading {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+    color: white;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #4467E3;
+
+    z-index: 1000;
+    border: none;
+}
+
+#startReading:hover {
+    background-color: #0b2277;
+}
+
+#left-section {
+    justify-content: space-between;
+    padding: 0px 40px 0px 0;
+    gap: 30px;
+}
+
+#title {
+    font-family: 'Kay Pho Du', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 70px;
+    text-align: left;
+    color: #474646;
+    margin: 0;
+    padding: 0;
 }
 
 .highlight {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    font-size: 32px;
-}
-
-.purple {
-    background-color: #e1bee7;
-    color: #6a1b9a;
-}
-
-.green {
-    background-color: #c8e6c9;
-    color: #388e3c;
-}
-
-.right-section {
-    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.guide-box {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+.first-group-highlight {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.container__body__section__left__highlight {
+    font-family: Sue Ellen Francisco;
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 100px;
     text-align: left;
+    color: #474646;
 }
 
-.guide-box h2 {
-    color: #007bff;
-    font-size: 24px;
-    margin-bottom: 15px;
+.highlight-rectangle {
+    padding: 0 25px;
+    height: 116px;
+    border-radius: 25px;
 }
 
-.guide-box ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
-    color: #555;
-    font-size: 16px;
+#highlight-green {
+    background: #49FF66B0;
+    width: fit-content;
 }
 
-.guide-box button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
+#highlight-purple {
+    background: #F0B3FF;
+    width: fit-content;
 }
 
-.guide-box button:hover {
-    background-color: #0056b3;
+.container__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
-@media (max-width: 768px) {
-    .container {
+@media screen and (max-width: 1000px) {
+
+    .container__body {
+        gap: 20px;
+    }
+
+    .container__body__section {
+        width: 70%;
+        align-self: center;
+        min-height: auto;
+    }
+
+    .container__body {
         flex-direction: column;
-        align-items: center;
     }
 
-    .left-section {
-        margin-bottom: 30px;
-        text-align: center;
+    #right-section {
+        margin-bottom: 50px;
     }
 
-    h1 {
-        font-size: 36px;
+    #title {
+        font-size: 60px;
     }
 
-    .highlight {
-        font-size: 24px;
+    .container__body__section__left__highlight{
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 563px) {
+    .container__body__section {
+        width: 90%;
+    }
+    
+    .logo {
+        justify-self: center;
+        margin-left: 0;
     }
 
-    .guide-box {
-        width: 100%;
-    }
 }
