@@ -117,6 +117,20 @@ if (startButton) {
     console.error('Botón startButton no encontrado en el DOM');
 }
 
+const quickButton = document.getElementById('quickGuideButton');
+
+if (quickButton) {
+    console.log('Botón guía rápida encontrado.');
+    quickButton.removeEventListener('click', () => {
+        navigateTo('/guide');
+    });
+    quickButton.addEventListener('click', () => {
+        navigateTo('/guide');
+    });
+} else {
+    console.error('Botón guía rápida no encontradao en el DOM');
+}
+
 window.addEventListener('startTest', () => {
     navigateTo('/test-page');
 });

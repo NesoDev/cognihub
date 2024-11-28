@@ -95,6 +95,7 @@ button {
     border-radius: 12px;
     margin-top: 20px;
     transition: background-color 0.3s;
+    z-index: 1000;
 }
 
 button:hover {
