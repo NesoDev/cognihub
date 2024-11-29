@@ -10,7 +10,7 @@ function sendAudioAsBase64(audioBlob) {
 
         console.log(base64Audio)
 
-        const url = 'https://goldfish-app-kfo84.ondigitalocean.app/upload';
+        const url = '';
 
         fetch(url, {
             method: 'POST',
